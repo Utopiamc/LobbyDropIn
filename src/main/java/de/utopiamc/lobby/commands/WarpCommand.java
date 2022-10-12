@@ -1,9 +1,10 @@
-package de.utopiamc.lobby.location;
+package de.utopiamc.lobby.commands;
 
 import com.google.inject.Inject;
 import de.utopiamc.framework.api.commands.descriptors.MapRoute;
 import de.utopiamc.framework.api.commands.descriptors.Variable;
 import de.utopiamc.framework.api.stereotype.Command;
+import de.utopiamc.lobby.location.SpawnService;
 import org.bukkit.entity.Player;
 
 @Command(value = "warp")

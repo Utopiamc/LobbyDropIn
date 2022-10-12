@@ -42,6 +42,14 @@ public class CloudNetSender {
 
     }
 
+    public static int getOnlinePlayerCount(){
+        int onlinePlayers;
+        IPlayerManager iPlayerManager  = CloudNetDriver.getInstance().getServicesRegistry().getFirstService(IPlayerManager.class);
+        onlinePlayers = iPlayerManager.getOnlineCount();
+
+        return onlinePlayers;
+    }
+
 //
 //
 //    private static final CloudNetDriver driver = CloudNetDriver.getInstance();

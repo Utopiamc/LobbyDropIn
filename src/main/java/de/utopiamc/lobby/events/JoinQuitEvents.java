@@ -7,7 +7,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 @Controller
-public class JoinEvents {
+public class JoinQuitEvents {
 
     @Subscribe(event = PlayerJoinEvent.class)
     public void onJoin(@Event PlayerJoinEvent event) {

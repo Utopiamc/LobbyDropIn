@@ -1,6 +1,7 @@
 package de.utopiamc.lobby.location;
 
 import lombok.Getter;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
@@ -35,7 +36,7 @@ public class StorageLocation implements ConfigurationSerializable {
     }
 
     public Location getLocation(){
-        return new Location(org.bukkit.Bukkit.getWorld(world), x, y, z, yaw, pitch);
+        return new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
     }
 
     public Map<String, Object> serialize() {
@@ -43,6 +44,14 @@ public class StorageLocation implements ConfigurationSerializable {
     }
 
     public static StorageLocation deserialize(Map<String, Object> map) {
-        return new StorageLocation((String) map.get("name"), (String) map.get("world"), (double) map.get("x"), (double) map.get("y"), (double) map.get("z"), (float) map.get("yaw"), (float) map.get("pitch"), Material.valueOf((String) map.get("material")));
+        System.out.println(map);
+        return new StorageLocation((String) map.get("name"),
+                (String) map.get("world"),
+                (double) map.get("x"),
+                (double) map.get("y"),
+                (double) map.get("z"),
+                ((Double) map.get("yaw")).floatValue(),
+                ((Double) map.get("pitch")).floatValue(),
+                Material.valueOf((String) map.get("material")));
     }
 }

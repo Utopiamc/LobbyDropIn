@@ -22,9 +22,9 @@ public class SetSpawnCommand {
 
     @Permission("lobby.setspawn")
     @MapRoute("<Name> <Material> <Round>")
-    public String setSpawn(Player player, @Variable("Name") String name, @Variable("Material") Material material, @Variable("Round") String round) {
+    public String setSpawn(Player player, @Variable("Name") String name, @Variable("Material") Material material, @Variable("Round") Boolean round) {
         Location location = player.getLocation();
-        if (round.equals("true")) {
+        if (round) {
             round(location);
         }
         spawnService.saveLocation(location, name, material);

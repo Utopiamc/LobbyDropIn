@@ -1,8 +1,11 @@
 package de.utopiamc.lobby.events;
 
+import com.google.inject.Inject;
 import de.utopiamc.framework.api.event.Subscribe;
 import de.utopiamc.framework.api.event.qualifier.Event;
 import de.utopiamc.framework.api.stereotype.Controller;
+import de.utopiamc.framework.api.tasks.Task;
+import de.utopiamc.framework.api.tasks.TaskService;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -17,8 +20,6 @@ public class JoinQuitEvents {
         event.setJoinMessage(null);
 
         event.getPlayer().setGameMode(GameMode.ADVENTURE);
-
-        //Oskar Teleport
 
         event.getPlayer().sendMessage("§2§m-----------------------------------------------");
         event.getPlayer().sendMessage("");

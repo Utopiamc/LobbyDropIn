@@ -23,7 +23,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: de.utopiamc:utopia-framework-server-api:1.2-RELEASE" level="project" />
     <orderEntry type="library" name="Maven: de.utopiamc:utopia-framework-api:1.2-RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains:annotations:20.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.mojang:authlib:1.5.25" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-codec:commons-codec:1.10" level="project" />
@@ -46,5 +45,22 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-tree:6.1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.ow2.asm:asm-analysis:6.1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-driver:3.4.0-RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-common:3.4.0-RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-handler:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-common:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-resolver:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-buffer:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-codec:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-codec-http:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport-native-unix-common:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport-native-kqueue:osx-x86_64:4.1.65.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jetbrains:annotations:21.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.javassist:javassist:3.28.0-GA" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-wrapper-jvm:3.4.0-RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-bridge:3.4.0-RELEASE" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: de.dytanic.cloudnet:cloudnet-cloudperms:3.4.0-RELEASE" level="project" />
   </component>
 </module>

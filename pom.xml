@@ -30,6 +30,11 @@
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
+
+        <repository>
+            <id>releases</id>
+            <url>https://repo.cloudnetservice.eu/repository/releases/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -53,5 +58,33 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Modules and plugins -->
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-driver</artifactId>
+            <version>3.4.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-wrapper-jvm</artifactId>
+            <version>3.4.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-bridge</artifactId>
+            <version>3.4.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>de.dytanic.cloudnet</groupId>
+            <artifactId>cloudnet-cloudperms</artifactId>
+            <version>3.4.0-RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

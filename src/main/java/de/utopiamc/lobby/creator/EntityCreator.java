@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class EntityCreator {
 
     private static final HashMap<String, Entity> entities = new HashMap<>();
+    private static final HashMap<Entity, String> identifiers = new HashMap<>();
 
     private final Entity entity;
     private final String world;
@@ -26,6 +27,7 @@ public class EntityCreator {
         entity.setCustomName(name);
 
         entities.put(identifier, entity);
+        identifiers.put(entity, identifier);
 
         this.entity = entity;
         this.world = world;
@@ -91,5 +93,10 @@ public class EntityCreator {
 
     public static Entity getEntity(String identifier) {
         return entities.get(identifier);
+    }
+
+    public static String getIdentifier(Entity entity) {
+        if (identifiers.containsKey(entity)) return identifiers.get(entity);
+        return null;
     }
 }

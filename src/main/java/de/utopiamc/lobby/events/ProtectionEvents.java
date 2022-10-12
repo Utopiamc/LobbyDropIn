@@ -4,6 +4,7 @@ import de.utopiamc.framework.api.event.Subscribe;
 import de.utopiamc.framework.api.event.qualifier.Event;
 import de.utopiamc.framework.api.stereotype.Controller;
 import org.bukkit.event.block.BlockExplodeEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
@@ -42,5 +43,10 @@ public class ProtectionEvents {
     public void onBlockExplode(@Event BlockExplodeEvent event) {
         event.setCancelled(true);
     } // This will cancel all block explosions
+
+    @Subscribe(event = EntityDamageEvent.class)
+    public void onEntityDamage(@Event EntityDamageEvent event) {
+        event.setCancelled(true);
+    } // This will cancel all entity damage
 
 }

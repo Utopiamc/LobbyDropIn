@@ -10,7 +10,7 @@ public class BixbyCommand {
 
     @MapRoute("")
     public void bixby(Player player) {
-        player.sendMessage("§7[§6Bixby§7] §eHi, I'm Bixby. I'm here to help you with your questions.");
+        player.sendMessage("§7[§6Bixby§7] §eHallo, ich bin Bixby. Ich bin hier, um Ihnen bei Ihren Fragen zu helfen.");
     }
 
 }

@@ -9,7 +9,7 @@ public class DonpiresoCommand {
 
     @MapRoute("")
     public void donpireso(Player player) {
-        player.sendMessage("§7[§6Donpireso§7] §eHi, I'm Donpireso. I'm here to give you know about our ranks.");
+        player.sendMessage("§7[§6Donpireso§7] §eHallo, ich bin Donpireso. Ich bin hier, um Sie über unsere Ränge zu informieren.");
     }
 
 }

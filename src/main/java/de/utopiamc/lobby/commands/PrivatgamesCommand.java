@@ -9,7 +9,7 @@ public class PrivatgamesCommand {
 
     @MapRoute("")
     public void privatgames(Player player) {
-        player.sendMessage("§7[§6Privatgames§7] §eHi, I'm Privatgames. I'm here to give you your private games.");
+        player.sendMessage("§7[§6Privatgames§7] §eHallo, ich bin Privatgames. Ich bin hier, um dir deine privaten Spiele zu geben.");
     }
 
 }

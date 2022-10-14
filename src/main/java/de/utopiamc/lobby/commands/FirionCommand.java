@@ -9,7 +9,7 @@ public class FirionCommand {
 
     @MapRoute("")
     public void firion(Player player) {
-        player.sendMessage("§7[§6Firion§7] §eHi, I'm Firion. I'm here to give you daily rewards.");
+        player.sendMessage("§7[§6Firion§7] §eHallo, ich bin Firion. Ich bin hier, um dir tägliche Belohnungen zu geben.");
     }
 
 }

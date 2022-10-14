@@ -9,7 +9,7 @@ public class AufgabenCommand {
 
     @MapRoute("")
     public void bixby(Player player) {
-        player.sendMessage("§7[§6Tasks§7] §eHi, I'm Tasks. I'm here to give you tasks to do!");
+        player.sendMessage("§7[§6Tasks§7] §eHallo, ich bin Tasks. Ich bin hier, um dir Aufgaben zu geben!");
     }
 
 }

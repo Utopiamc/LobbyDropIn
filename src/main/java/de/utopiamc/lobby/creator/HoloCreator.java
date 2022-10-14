@@ -1,48 +1,29 @@
 package de.utopiamc.lobby.creator;
 
+import lombok.Builder;
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Consumer;
 
+@Builder
 public class HoloCreator {
-
-    public static HashMap<UUID, HoloCreator> holos = new HashMap<>();
 
     private final String world;
     private final double x;
     private final double y;
     private final double z;
-    private Consumer<Player> action;
+    private UUID uuid;
+    private Set<UUID> armorStands = new HashSet<>();
 
-    private final ArrayList<String> lines = new ArrayList<>();
-
-    public HoloCreator(String world, double x, double y, double z) {
-        this.world = world;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-
-    public HoloCreator addLine(String line) {
-        lines.add(line);
-        return this;
-    }
-
-    public HoloCreator onClick(final Consumer<Player> action) {
-        this.action = action;
-        return this;
-    }
-
-    public Consumer<Player> getAction() {
-        return action;
-    }
+    @Getter
+    private final Consumer<Player> onClick;
+    private final List<String> lines;
 
     public void spawn() {
         for (int i = 0; i < lines.size(); i++) {
@@ -52,8 +33,11 @@ public class HoloCreator {
             as.setInvulnerable(true);
             as.setVisible(false);
             as.setGravity(false);
-
-            holos.put(as.getUniqueId(), this);
+            armorStands.add(as.getUniqueId());
         }
+    }
+
+    public void bind(Map<UUID, HoloCreator> map) {
+        armorStands.forEach(uuid -> map.put(uuid, this));
     }
 }

@@ -20,8 +20,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: de.utopiamc:utopia-framework-server-api:1.2-RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: de.utopiamc:utopia-framework-api:1.2-RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: de.utopiamc:utopia-framework-server-api:1.2.2-RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: de.utopiamc:utopia-framework-api:1.2.2-RELEASE" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.destroystokyo.paper:paper-api:1.12.2-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.mojang:authlib:1.5.25" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-codec:commons-codec:1.10" level="project" />

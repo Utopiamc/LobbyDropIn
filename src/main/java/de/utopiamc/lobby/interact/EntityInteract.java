@@ -6,14 +6,15 @@ import de.utopiamc.framework.api.stereotype.Controller;
 import de.utopiamc.lobby.creator.EntityCreator;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 @Controller
 public class EntityInteract {
 
-    @Subscribe(event = PlayerInteractEntityEvent.class)
-    public void onEntityInteract(@Event PlayerInteractEntityEvent event) {
+    @Subscribe(event = PlayerInteractAtEntityEvent.class)
+    public void onEntityInteract(@Event PlayerInteractAtEntityEvent event) {
         if (event.getHand() == EquipmentSlot.HAND) {
             String identifier = EntityCreator.getIdentifier(event.getRightClicked());
             if (identifier != null) {
@@ -22,6 +23,11 @@ public class EntityInteract {
             }
         }
     } // This will cancel all entity interactions and execute the command of the entity
+
+    @Subscribe(event = PlayerInteractEntityEvent.class)
+    public void onEntityInteract(@Event PlayerInteractEntityEvent event) {
+        event.setCancelled(true);
+    } // This will cancel all entity interactions
 
 
     @Subscribe(event = EntityDamageByEntityEvent.class)

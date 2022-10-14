@@ -1,6 +1,7 @@
 package de.utopiamc.lobby;
 
 import com.google.inject.Inject;
+import de.dytanic.cloudnet.ext.bridge.node.CloudNetBridgeModule;
 import de.utopiamc.framework.api.dropin.annotations.OnDisable;
 import de.utopiamc.framework.api.dropin.annotations.OnEnable;
 import de.utopiamc.framework.api.stereotype.Plugin;

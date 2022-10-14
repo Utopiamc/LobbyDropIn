@@ -5,11 +5,12 @@ import org.bukkit.Location;
 import org.bukkit.entity.*;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class EntityCreator {
 
-    private static final HashMap<String, Entity> entities = new HashMap<>();
-    private static final HashMap<Entity, String> identifiers = new HashMap<>();
+    private static final HashMap<String, UUID> entities = new HashMap<>();
+    private static final HashMap<UUID, String> identifiers = new HashMap<>();
 
     private final Entity entity;
     private final String world;
@@ -26,8 +27,8 @@ public class EntityCreator {
         entity.setCustomNameVisible(true);
         entity.setCustomName(name);
 
-        entities.put(identifier, entity);
-        identifiers.put(entity, identifier);
+        entities.put(identifier, entity.getUniqueId());
+        identifiers.put(entity.getUniqueId(), identifier);
 
         this.entity = entity;
         this.world = world;
@@ -91,12 +92,12 @@ public class EntityCreator {
         return entity;
     }
 
-    public static Entity getEntity(String identifier) {
+    public static UUID getEntity(String identifier) {
         return entities.get(identifier);
     }
 
     public static String getIdentifier(Entity entity) {
-        if (identifiers.containsKey(entity)) return identifiers.get(entity);
+        if (identifiers.containsKey(entity.getUniqueId())) return identifiers.get(entity.getUniqueId());
         return null;
     }
 }

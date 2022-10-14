@@ -44,9 +44,4 @@ public class ProtectionEvents {
         event.setCancelled(true);
     } // This will cancel all block explosions
 
-    @Subscribe(event = EntityDamageEvent.class)
-    public void onEntityDamage(@Event EntityDamageEvent event) {
-        event.setCancelled(true);
-    } // This will cancel all entity damage
-
 }

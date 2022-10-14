@@ -94,5 +94,11 @@ public class Lobby {
                 .setSilent(true)
                 .setInvulnerable(true)
                 .setClickArmorStand();
+
+        new EntityCreator("world", 77.5, 12.1, 104.5, 0, 0, EntityType.ARMOR_STAND, "§7⛃§6Ingame Shop§7⛃", "IngameShop")
+                .setCollidable(false)
+                .setVisible(false)
+                .setGravity(false)
+                .setClickArmorStand();
     }
 }

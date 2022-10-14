@@ -32,10 +32,10 @@ public class EntityInteract {
 
     @Subscribe(event = EntityDamageByEntityEvent.class)
     public void onEntityDamageByEntity(@Event EntityDamageByEntityEvent event) {
+        event.setCancelled(true);
         if (event.getDamager() instanceof Player) {
             String identifier = EntityCreator.getIdentifier(event.getEntity());
             if (identifier != null) {
-                event.setCancelled(true);
                 ((Player)event.getDamager()).performCommand(identifier);
             }
         }

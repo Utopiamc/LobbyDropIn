@@ -70,6 +70,11 @@ public class EntityCreator {
         return this;
     }
 
+    public EntityCreator setVisible(boolean visible){
+        ((ArmorStand) entity).setVisible(visible);
+        return this;
+    }
+
     public EntityCreator setBaby(boolean baby) {
         ((Ageable) entity).setBaby();
         return this;

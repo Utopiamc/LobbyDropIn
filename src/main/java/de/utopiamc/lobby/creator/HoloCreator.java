@@ -4,17 +4,24 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
+import java.util.function.Consumer;
 
 public class HoloCreator {
+
+    public static HashMap<UUID, HoloCreator> holos = new HashMap<>();
 
     private final String world;
     private final double x;
     private final double y;
     private final double z;
+    private Consumer<Player> action;
 
-    private ArrayList<String> lines = new ArrayList<>();
+    private final ArrayList<String> lines = new ArrayList<>();
 
     public HoloCreator(String world, double x, double y, double z) {
         this.world = world;
@@ -24,20 +31,29 @@ public class HoloCreator {
     }
 
     public HoloCreator addLine(String line) {
-        this.lines.add(line);
+        lines.add(line);
         return this;
+    }
+
+    public HoloCreator onClick(final Consumer<Player> action) {
+        this.action = action;
+        return this;
+    }
+
+    public Consumer<Player> getAction() {
+        return action;
     }
 
     public void spawn() {
         for (int i = 0; i < lines.size(); i++) {
-            ArmorStand as = (ArmorStand) Bukkit.getWorld(world).spawnEntity(new Location(Bukkit.getWorld(world), x, y + lines.size() * 0.3, z), EntityType.ARMOR_STAND);
-            as.setCustomName(lines.get(0));
+            ArmorStand as = (ArmorStand) Bukkit.getWorld(world).spawnEntity(new Location(Bukkit.getWorld(world), x, (y - (i * 0.3)) + (lines.size() * 0.3), z), EntityType.ARMOR_STAND);
+            as.setCustomName(lines.get(i));
             as.setCustomNameVisible(true);
             as.setInvulnerable(true);
             as.setVisible(false);
             as.setGravity(false);
 
-            lines.remove(0);
+            holos.put(as.getUniqueId(), this);
         }
     }
 }

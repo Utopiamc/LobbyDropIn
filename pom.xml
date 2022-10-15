@@ -35,6 +35,7 @@
             <id>releases</id>
             <url>https://repo.cloudnetservice.eu/repository/releases/</url>
         </repository>
+
     </repositories>
 
     <dependencies>

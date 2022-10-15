@@ -3,8 +3,11 @@ package de.utopiamc.lobby;
 import com.google.inject.Inject;
 import de.utopiamc.framework.api.dropin.annotations.OnDisable;
 import de.utopiamc.framework.api.dropin.annotations.OnEnable;
+import de.utopiamc.framework.api.event.FrameworkEvent;
+import de.utopiamc.framework.api.event.Subscribe;
 import de.utopiamc.framework.api.stereotype.Plugin;
 import de.utopiamc.lobby.creator.EntityCreator;
+import de.utopiamc.lobby.service.HoloService;
 import org.bukkit.entity.EntityType;
 
 import java.util.logging.Logger;
@@ -20,16 +23,17 @@ public class Lobby {
     }
 
     @OnEnable
-    public void onEnable() {
+    public void onEnable(HoloService holoService) {
         logger.info("Lobby enabled!");
         spawnEntities();
+
+        holoService.spawnHolos();
     }
 
     @OnDisable
     public void onDisable() {
         logger.info("Lobby disabled!");
     }
-
 
     public void spawnEntities(){
         new EntityCreator("world", 61.1, 11, 108.1, -130, 0, EntityType.IRON_GOLEM, "§3§lDonpireso", "Donpireso")
@@ -71,5 +75,10 @@ public class Lobby {
                 .setVisible(false)
                 .setGravity(false)
                 .setClickArmorStand();
+    }
+
+    @Subscribe(event = FrameworkEvent.class)
+    public void onFrameworkEvent(FrameworkEvent event) {
+
     }
 }

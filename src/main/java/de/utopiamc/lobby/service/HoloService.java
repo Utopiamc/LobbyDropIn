@@ -34,9 +34,9 @@ public class HoloService {
 
     private final String PREFIX = "§c§lLobby §8» §7";
 
-    public void spawnHolos(HoloService service){
+    public void spawnHolos(){
 
-        service.addHoloCreator(HoloCreator.builder()
+        addHoloCreator(HoloCreator.builder()
                 .world("world")
                 .x(67.5)
                 .y(10.3)
@@ -60,7 +60,7 @@ public class HoloService {
         );
 
 
-        service.addHoloCreator(HoloCreator.builder()
+        addHoloCreator(HoloCreator.builder()
                 .world("world")
                 .x(88.5)
                 .y(10.3)
@@ -85,7 +85,7 @@ public class HoloService {
         );
 
 
-        service.addHoloCreator(HoloCreator.builder()
+        addHoloCreator(HoloCreator.builder()
                 .world("world")
                 .x(90.5)
                 .y(11.3)
@@ -109,7 +109,7 @@ public class HoloService {
         );
 
 
-        service.addHoloCreator(HoloCreator.builder()
+        addHoloCreator(HoloCreator.builder()
                 .world("world")
                 .x(70.5)
                 .y(11.3)

@@ -1,15 +1,12 @@
 package de.utopiamc.lobby.commands;
 
 import de.utopiamc.framework.api.commands.descriptors.MapRoute;
-import de.utopiamc.framework.api.event.Subscribe;
-import de.utopiamc.framework.api.event.qualifier.Event;
 import de.utopiamc.framework.api.stereotype.Command;
 import de.utopiamc.lobby.creator.ItemBuilder;
 import de.utopiamc.lobby.creator.SkullBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -17,26 +14,26 @@ import org.bukkit.inventory.meta.SkullMeta;
 @Command(value = "profil", aliases = {"profile", "p"})
 public class ProfileCommand {
 
-    public static String INVENTORYNAME = "§8Mein Profil";
-    public static String BACK = "§8Zurück";
+    public static final String INVENTORYNAME = "§8Mein Profil";
+    public static final String BACK = "§8Zurück";
 
-    public static String PLAYERSKULL = "§8Dein Profil";
-    public static String FRIENDS = "§8Freunde";
-    public static String PARTY = "§8Party";
-    public static String CLAN = "§8Clan";
-    public static String KUERTZLICH = "§8Kürzlich gespielt";
-    public static String LINK = "§2Verlinkte Kontos";
-    public static String STATS = "§8Deine Stats ansehen";
-    public static String SETTINGS = "§8Einstellungen";
-    public static String USERACCS = "§8Deine Konten";
-    public static String IMAGE = "§8Erscheinungs Bild";
-    public static String BANNS = "§8Deine Banns ansehen";
+    public static final String PLAYERSKULL = "§8Dein Profil";
+    public static final String FRIENDS = "§8Freunde";
+    public static final String PARTY = "§8Party";
+    public static final String CLAN = "§8Clan";
+    public static final String KUERTZLICH = "§8Kürzlich gespielt";
+    public static final String LINK = "§2Verlinkte Kontos";
+    public static final String STATS = "§8Deine Stats ansehen";
+    public static final String SETTINGS = "§8Einstellungen";
+    public static final String USERACCS = "§8Deine Konten";
+    public static final String IMAGE = "§8Erscheinungs Bild";
+    public static final String BANNS = "§8Deine Banns ansehen";
 
-    public static String Discord = "§8Discord";
-    public static String WEB = "§aForum§7/§cWebseite";
+    public static final String Discord = "§8Discord";
+    public static final String WEB = "§aForum§7/§cWebseite";
 
-    public static String LINKT = "§aVebunden";
-    public static String UNLINKT = "§cNicht Verbunden";
+    public static final String LINKT = "§aVebunden";
+    public static final String UNLINKT = "§cNicht Verbunden";
 
     @MapRoute("")
     public void profile(Player player) {

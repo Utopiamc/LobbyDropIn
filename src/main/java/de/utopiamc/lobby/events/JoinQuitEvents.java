@@ -6,7 +6,6 @@ import de.utopiamc.framework.api.event.qualifier.Event;
 import de.utopiamc.framework.api.stereotype.Controller;
 import de.utopiamc.framework.api.tasks.TaskService;
 import de.utopiamc.lobby.creator.ItemBuilder;
-import de.utopiamc.lobby.creator.SkullBuilder;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

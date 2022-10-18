@@ -13,6 +13,7 @@ import de.dytanic.cloudnet.ext.bridge.player.IPlayerManager;
 import de.dytanic.cloudnet.ext.bridge.player.executor.PlayerExecutor;
 import de.utopiamc.framework.api.event.Subscribe;
 import de.utopiamc.framework.api.event.qualifier.Event;
+import de.utopiamc.framework.api.info.ServerName;
 import de.utopiamc.framework.api.stereotype.Controller;
 import de.utopiamc.lobby.creator.ItemBuilder;
 import org.bukkit.Bukkit;
@@ -27,7 +28,9 @@ import java.util.Comparator;
 import java.util.List;
 
 @Controller
-public class CloudNetGetPlayerOnline {
+public class CloudnetLobbyOnline {
+
+    public static final String A_L_LOBBY_SELECTOR_8 = "§8» §a§lLobby Selector §8«";
 
     public int countServiceInfoSnapshotPlayerCountOfTask(String taskName) {
         int counter = 0;
@@ -39,7 +42,7 @@ public class CloudNetGetPlayerOnline {
         return counter;
     }
 
-    public Inventory inv = Bukkit.createInventory(null, 9, "§8» §a§lLobby Selector §8«");
+    public Inventory inv = Bukkit.createInventory(null, 9, A_L_LOBBY_SELECTOR_8);
 
     @Inject
     public void startUp(){
@@ -64,7 +67,13 @@ public class CloudNetGetPlayerOnline {
 
     }
 
-    public void sendPlayerToService(Player player, String serverName){
+    public void sendPlayerToService(Player player, String serverName, String fromServer){
+
+        if (fromServer.equalsIgnoreCase(serverName)) {
+            player.sendMessage("§8» §cDu bist bereits auf diesem Server!");
+            player.sendMessage("§8» §7Du scheinst dich verirrt zu haben :)");
+            return;
+        }
         player.sendMessage("§8» §7Du wirst nun zum Server §e" + serverName + " §7verbunden...");
 
         IPlayerManager iPlayerManager = CloudNetDriver.getInstance().getServicesRegistry().getFirstService(IPlayerManager.class);
@@ -101,15 +110,15 @@ public class CloudNetGetPlayerOnline {
     }
 
     @Subscribe(event = InventoryClickEvent.class)
-    public void handle4(@Event InventoryClickEvent event){
+    public void handle4(@Event InventoryClickEvent event, @ServerName String serverName){
         if(event.getClickedInventory() == null) return;
-        if(event.getClickedInventory().getTitle().equals(inv.getTitle())){
+        if(event.getView().getTitle().equals(A_L_LOBBY_SELECTOR_8)){
             event.setCancelled(true);
             if(event.getCurrentItem() == null) return;
             if(event.getCurrentItem().getType() == Material.AIR) return;
             if(event.getCurrentItem().getItemMeta().getDisplayName().contains("§aLobby-")){
                 event.getWhoClicked().closeInventory();
-                sendPlayerToService((Player) event.getWhoClicked(), event.getCurrentItem().getItemMeta().getDisplayName().split("§a")[1]);
+                sendPlayerToService((Player) event.getWhoClicked(), event.getCurrentItem().getItemMeta().getDisplayName().split("§a")[1], serverName);
             }
         }
     }

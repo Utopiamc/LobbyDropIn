@@ -23,7 +23,7 @@ public class PortalEnter {
         Location locSKYpos1 = new Location(Bukkit.getWorld("world"), 72,12,121);
         Location locCHApos1 = new Location(Bukkit.getWorld("world"), 66,12,113);
 
-        if (!event.getFrom().getBlock().getType().equals(Material.PORTAL) && event.getTo().getBlock().getType().equals(Material.PORTAL)) {
+        if (!event.getFrom().getBlock().getType().equals(Material.NETHER_PORTAL) && event.getTo().getBlock().getType().equals(Material.NETHER_PORTAL)) {
 
             int dis = 9999;
             String Server = null;

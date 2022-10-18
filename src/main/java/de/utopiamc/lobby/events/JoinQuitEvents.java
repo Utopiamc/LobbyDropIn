@@ -3,11 +3,11 @@ package de.utopiamc.lobby.events;
 import com.google.inject.Inject;
 import de.utopiamc.framework.api.event.Subscribe;
 import de.utopiamc.framework.api.event.qualifier.Event;
+import de.utopiamc.framework.api.info.ServerName;
 import de.utopiamc.framework.api.stereotype.Controller;
 import de.utopiamc.framework.api.tasks.TaskService;
 import de.utopiamc.lobby.creator.ItemBuilder;
 import org.apache.commons.lang.StringUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class JoinQuitEvents {
     }
 
     @Subscribe(event = PlayerJoinEvent.class)
-    public void onJoin(@Event PlayerJoinEvent event) {
+    public void onJoin(@Event PlayerJoinEvent event, @ServerName String serverName) {
         event.setJoinMessage(null);
 
         event.getPlayer().sendMessage("§2§m-----------------------------------------------");
@@ -46,7 +46,7 @@ public class JoinQuitEvents {
 
         event.getPlayer().sendTitle("§7Hallo §6" + event.getPlayer().getName(), "§7Willkommen auf §6Utopiamc.de", 0,40,30);
         taskService.runSync(() -> {
-            event.getPlayer().sendTitle("", "§7" + Bukkit.getServerName(), 20,8,5);
+            event.getPlayer().sendTitle("", "§7" + serverName, 20,8,5);
         }, 70);
 
     } // Join handler
@@ -75,14 +75,14 @@ public class JoinQuitEvents {
 
         player.getInventory().setItem(0, new ItemBuilder(Material.COMPASS).setDisplayName(HotbarEvents.NAVIGATOR).build());
 
-        ItemStack profile = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
+        ItemStack profile = new ItemStack(Material.PLAYER_HEAD, 1, (short)3);
         SkullMeta profileSkull = (SkullMeta)profile.getItemMeta();
         profileSkull.setOwner(player.getName());
         profileSkull.setDisplayName(HotbarEvents.PROFILE);
         profile.setItemMeta(profileSkull);
 
         player.getInventory().setItem(1, profile);
-        player.getInventory().setItem(4, new ItemBuilder(Material.INK_SACK, 1, (byte)10).setDisplayName(HotbarEvents.PLAYER_HIDER).build());
+        player.getInventory().setItem(4, new ItemBuilder(Material.LIME_DYE).setDisplayName(HotbarEvents.PLAYER_HIDER).build());
         player.getInventory().setItem(7, new ItemBuilder(Material.CLAY_BALL).setDisplayName(HotbarEvents.PARTICLE).build());
         player.getInventory().setItem(8, new ItemBuilder(Material.NETHER_STAR).setDisplayName(HotbarEvents.LOBBY_SELECTOR).build());
     }

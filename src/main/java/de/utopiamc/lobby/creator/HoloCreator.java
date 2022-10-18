@@ -19,7 +19,7 @@ public class HoloCreator {
     private final double y;
     private final double z;
     private UUID uuid;
-    private Set<UUID> armorStands = new HashSet<>();
+    private final Set<UUID> armorStands = new HashSet<>();
 
     @Getter
     private final Consumer<Player> onClick;

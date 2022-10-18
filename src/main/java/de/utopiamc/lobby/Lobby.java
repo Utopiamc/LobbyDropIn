@@ -16,14 +16,16 @@ import java.util.logging.Logger;
 public class Lobby {
 
     private final Logger logger;
+    private final HoloService holoService;
 
     @Inject
-    public Lobby(Logger logger) {
+    public Lobby(Logger logger, HoloService holoService) {
         this.logger = logger;
+        this.holoService = holoService;
     }
 
     @OnEnable
-    public void onEnable(HoloService holoService) {
+    public void onEnable() {
         logger.info("Lobby enabled!");
         spawnEntities();
 
